@@ -5,8 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TextBoxTests {
 
@@ -22,6 +22,9 @@ public class TextBoxTests {
     void fillFormTest() {
         open("/text-box");
 //        $("[id=userName]").setValue("Egor");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+
         $("#userName").setValue("Egor");
         $("#userEmail").setValue("Egor@egor.com");
         $("#currentAddress").setValue("Some address 1");
