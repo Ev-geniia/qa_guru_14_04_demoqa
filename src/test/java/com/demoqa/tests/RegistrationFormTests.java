@@ -1,4 +1,4 @@
-package com.demoqa;
+package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,8 +14,6 @@ public class RegistrationFormTests {
     @BeforeAll
     static void configure() {
         Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.timeout = 10000; // 10 seconds
-//        Configuration.browser = "opera";
         Configuration.browserSize = "1920x1080";
     }
 
@@ -23,7 +21,6 @@ public class RegistrationFormTests {
     void fillFormTest() {
         open("/automation-practice-form ");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        //$("[class=practice-form-wrapper]").shouldHave(text("Student Registration Form"));
         //. for class, # for id
 
         executeJavaScript("$('footer').remove()");
